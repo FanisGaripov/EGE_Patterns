@@ -1,0 +1,17 @@
+h = list(range(10, 100))
+f = open('17_23757.txt')
+s = [int(r) for r in f]
+cnt = 0
+max_summa = -float('inf')
+mini2 = float('inf')
+for i in s:
+    if i in h:
+        if i < mini2:
+            mini2 = i
+for i in range(len(s) - 1):
+    if (s[i] in h and s[i + 1] not in h) or (s[i] not in h and s[i + 1] in h):
+        if (s[i] + s[i + 1]) % mini2 == 0:
+            cnt += 1
+            if s[i] + s[i + 1] > max_summa:
+                max_summa = s[i] + s[i + 1]
+print(cnt, max_summa)
