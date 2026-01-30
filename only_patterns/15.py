@@ -1,13 +1,18 @@
+# Шаблон для 15 задачи ЕГЭ по информатике
+
+'''
+На числовой прямой даны два отрезка: P = [25; 64] и Q = [40; 115].
+Укажите наименьшую возможную длину такого отрезка A, что логическое выражение
+ (x∈P)→(((x∈Q)∧¬(x∈A))→¬(x∈P))
+истинно (т.е. принимает значение 1) при любом значении переменной х.
+'''
+
 P = range(25, 65)
 Q = range(40, 116)
-for a in range(1, 1000):
-    A = range(40, a)
-    flag = 0
-    for x in range(-500, 500):
-        f = (x in P) <= (((x in Q) and (not(x in A))) <= (not(x in P)))
-        if f:
-            flag += 1
-    if flag == 1000:
-        print(list(A))
-        print(len(list(A)))
-        break
+A = []
+for x in range(-500, 500):
+    f = (x in P) <= (((x in Q) and (not (x in A))) <= (not (x in P)))
+    if not f:
+        A.append(x)
+print(A)
+print(A[-1] - A[0])

@@ -1,28 +1,23 @@
-import string
+# Шаблон для 24 задачи ЕГЭ по информатике
+
+
+'''
+Текстовый файл состоит из десятичных цифр и заглавных букв латинского алфавита.
+Определите в прилагаемом файле максимальное количество идущих подряд символов, среди которых подстрока 2025
+встречается не менее 90 раз и при этом содержится ровно 80 букв Y.
+В ответе запишите число – количество символов в найденной последовательности.
+Для выполнения этого задания следует написать программу.
+'''
 
 f = open('24_23762.txt').read()
-maxi_len = -float('inf')
-maxi_stroka = ''
 l = 0
-
-def find_count(s):
-    cnt = 0
-    for j in s:
-        if j == 'Y':
-            cnt += 1
-    return cnt
-
+max_len = -1000
 for r in range(len(f)):
-    s = f[l:r + 1]
-    print(f'{r} / {len(f)}')
-    while find_count(s) > 80:
+    s = f[l:r+1]
+    if s.count('2025') >= 90 and s.count('Y') == 80:
+        if len(s) > max_len:
+            max_len = len(s)
+    while s.count('Y') > 80:
         l += 1
-        s = f[l: r + 1]
-    else:
-        cnt = find_count(s)
-        if s.count('2025') >= 90 and cnt == 80:
-            if len(s) > maxi_len:
-                maxi_len = len(s)
-                maxi_stroka = ''
-print(maxi_len)
-print(maxi_stroka)
+        s = f[l:r+1]
+print(max_len)
