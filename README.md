@@ -17,6 +17,11 @@ EGE_Patterns/
 │   ├── 1.py
 │   └── 2.py
 │       ...
+│
+├── demoversion_files.zip         # оригинальные файлы из демоверсии ЕГЭ
+├── regular_expressions_list      # Список регулярных выражение в pdf/docx
+│
+├── LICENSE                       # Unlincense лицензия
 └── README.md                     # Этот файл
 ```
 
